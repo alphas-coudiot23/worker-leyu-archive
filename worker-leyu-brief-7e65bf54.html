@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu · 稳定入口说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f6f8fb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e2937;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2b 0%, #1e2e3f 100%);
+            padding: 3.2rem 1.8rem 2.8rem;
+            text-align: center;
+            color: #e7edf5;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.6rem;
+            color: #dae6f2;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            opacity: 0.72;
+            max-width: 520px;
+            margin: 0.5rem auto 0;
+            font-weight: 350;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            margin-top: 1.4rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 36px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            color: #b6cee3;
+        }
+
+        /* 主内容区：目录感布局 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.2rem 1.6rem 3.6rem;
+        }
+
+        /* 卡片网格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.6rem 1.4rem 1.8rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.2s ease;
+            border: 1px solid #eaeef4;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(0, 35, 70, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #122c3c;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card p,
+        .card li {
+            font-size: 0.95rem;
+            color: #2d3f4f;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.25rem 0 0.25rem 1.2rem;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #1783cf;
+            font-weight: 700;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem 0.7rem;
+            margin-top: 0.6rem;
+        }
+
+        .badge-list span {
+            background: #eef3f9;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            color: #1e4a6b;
+        }
+
+        /* 宽卡片 / 说明区、提示区 */
+        .full-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 1.6rem;
+            border: 1px solid #e2e9f1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+        }
+
+        .full-card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #102a3b;
+            border-left: 4px solid #1976b5;
+            padding-left: 0.9rem;
+        }
+
+        .full-card p {
+            margin-bottom: 0.7rem;
+            color: #2a4053;
+        }
+
+        .full-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .full-card a {
+            color: #1a6fa0;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.15s, color 0.15s;
+            font-weight: 500;
+        }
+
+        .full-card a:hover {
+            border-bottom: 1px solid #1a6fa0;
+            color: #0b4f78;
+        }
+
+        /* 提示区 + 相关信息区双列 */
+        .split-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 16px;
+            padding: 1.3rem 1.4rem;
+            border: 1px solid #e2eaf2;
+        }
+
+        .info-box h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #163b51;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-box p,
+        .info-box li {
+            font-size: 0.94rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .info-box li {
+            padding: 0.2rem 0;
+        }
+
+        .info-box .small-meta {
+            font-size: 0.85rem;
+            color: #62778a;
+            margin-top: 0.4rem;
+        }
+
+        .faq-summary {
+            background: white;
+            border-radius: 16px;
+            padding: 1.3rem 1.4rem;
+            border: 1px solid #e2eaf2;
+        }
+
+        .faq-summary h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #163b51;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.7rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1e4b68;
+            font-size: 0.92rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-item p {
+            font-size: 0.88rem;
+            color: #385366;
+            margin: 0;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2.4rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #dbe2ea;
+            font-size: 0.84rem;
+            color: #556f81;
+            text-align: center;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-note a {
+            color: #1a6fa0;
+            text-decoration: none;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .split-panel {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .container {
+                padding: 1.6rem 1rem;
+            }
+
+            .card {
+                padding: 1.3rem 1.1rem;
+            }
+
+            .full-card {
+                padding: 1.3rem 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.6rem 1rem 2rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>leyu · 知识库入口</h1>
+        <div class="sub">面向使用者的稳定说明页，聚合站点结构与常见指引</div>
+        <span class="tagline">→ 目录感布局 · 说明区 · 提示区 · 相关信息</span>
+    </header>
+
+    <main class="container">
+
+        <!-- 第一组双卡片：介绍 + 特点 -->
+        <div class="grid-2">
+            <div class="card">
+                <h3>📌 关于 leyu</h3>
+                <p>leyu 提供相对清晰的信息组织方式与访问路径。此页面作为结构入口，帮助你快速了解站点涵盖的主要方向、内容分类及使用边界。</p>
+                <p style="margin-top: 0.7rem;">无论是初次接触还是日常使用，这里都适合作为索引起点。</p>
+            </div>
+            <div class="card">
+                <h3>🧩 内容特点</h3>
+                <ul>
+                    <li>静态入口与动态更新相结合</li>
+                    <li>模块分区，减少重复查找</li>
+                    <li>分类与标签辅助定位</li>
+                    <li>说明文字保持中立、简洁</li>
+                </ul>
+                <div class="badge-list">
+                    <span>知识库</span>
+                    <span>索引</span>
+                    <span>结构说明</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明区：宽卡片 -->
+        <div class="full-card">
+            <h2>📖 页面说明</h2>
+            <p>本页面不替代主站功能，而是作为辅助的目录与概述页。你可以通过下方链接直接前往 <a href="https://worker-leyu.com.cn">leyu</a> 主站，那里包含完整的页面与资源。</p>
+            <p>以下区域整理了常见的使用场景、提示以及相关信息的摘要，供快速参考。所有描述均基于站点现有结构，不包含未经核实的断言。</p>
+        </div>
+
+        <!-- 双列：提示区 + 相关信息区（含FAQ摘要） -->
+        <div class="split-panel">
+            <!-- 提示区 -->
+            <div class="info-box">
+                <h4>📌 使用提示</h4>
+                <ul>
+                    <li>建议使用现代浏览器访问，保持页面渲染一致。</li>
+                    <li>若需要查找特定模块，可先利用导航区域筛选。</li>
+                    <li>部分页面内容会定期调整，以实际显示为准。</li>
+                    <li>如遇链接失效或显示异常，可尝试刷新或稍后重试。</li>
+                </ul>
+                <div class="small-meta">基于站点常规使用场景整理</div>
+            </div>
+
+            <!-- 相关信息区 + FAQ摘要 (合并) -->
+            <div class="faq-summary">
+                <h4>📋 相关信息 & FAQ 摘要</h4>
+                <div class="faq-item">
+                    <strong>leyu 主要面向哪些场景？</strong>
+                    <p>提供信息索引与内容导航，适合日常查阅与结构化访问。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>页面是否包含下载或注册入口？</strong>
+                    <p>本说明页不涉及下载或注册流程，仅作引导。具体操作请参照主站对应页面。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>如何获得更详细的帮助？</strong>
+                    <p>可前往 <a href="https://worker-leyu.com.cn">leyu</a> 查阅相关模块或说明文档。</p>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.85rem; color: #516b7d;">
+                    ⏺ 以上内容基于当前站点结构概述。
+                </div>
+            </div>
+        </div>
+
+        <!-- 额外一个轻提示：关于链接与稳定入口 -->
+        <div style="margin-top: 1.2rem; background: #f1f6fc; border-radius: 40px; padding: 0.8rem 1.4rem; text-align: center; border: 1px solid #dae6f0;">
+            <span style="font-weight: 450; color: #144a66;">稳定入口：</span>
+            <a href="https://worker-leyu.com.cn" style="color: #1a6fa0; font-weight: 500; text-decoration: none;">leyu</a>
+            <span style="color: #3b607b; margin-left: 0.3rem;">· 目录说明页仅作参考</span>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            <p>页面内容由静态说明构成 · 主要链接指向 <a href="https://worker-leyu.com.cn">leyu</a> · 如有疑问请以主站信息为准</p>
+            <p style="margin-top: 0.3rem; opacity: 0.6;">目录感布局 · 说明区 提示区 相关信息区 · 版本 2025</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
