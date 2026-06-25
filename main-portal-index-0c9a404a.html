@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1xbet 快速指南 · 门户介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f8fa;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e1e2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.2rem;
+    }
+
+    .page {
+      max-width: 720px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.04);
+      padding: 2.8rem 2rem;
+    }
+
+    /* 杂志式横幅 —— 用大标题 + 底部细线 */
+    .hero {
+      margin-bottom: 2.8rem;
+      border-bottom: 2px solid #eceef2;
+      padding-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0b0b14;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: #eef1f6;
+      color: #2d3a4a;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      margin-top: 0.4rem;
+    }
+
+    /* 背景说明卡片 */
+    .context-card {
+      background: #f2f4f9;
+      border-radius: 20px;
+      padding: 1.8rem 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .context-card p {
+      font-size: 1rem;
+      color: #1f2937;
+    }
+
+    .context-card strong {
+      font-weight: 600;
+      color: #121826;
+    }
+
+    /* 三段自然介绍 —— 杂志风格的模块标题 */
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-left: 4px solid #1b2431;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      color: #0d0f17;
+    }
+
+    .section p {
+      margin-bottom: 1.2rem;
+      color: #2b3340;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #1f2a3d;
+      background: #eef1f6;
+      padding: 0.1rem 0.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+
+    .inline-link:hover {
+      background: #d4dae5;
+      text-decoration: underline;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .feature-item {
+      background: #f9fafc;
+      border-radius: 16px;
+      padding: 1.2rem 1.2rem;
+      flex: 1 1 180px;
+      border: 1px solid #eef1f6;
+    }
+
+    .feature-item h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #1f2937;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      color: #3e4a5a;
+      margin-bottom: 0;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      margin-top: 3.2rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e6e9ef;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+
+    .footer-note p {
+      color: #3f4b5c;
+      font-size: 0.95rem;
+    }
+
+    .footer-note .visit-tip {
+      background: #f0f2f6;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1f2937;
+      white-space: nowrap;
+    }
+
+    .faq-mini {
+      margin-top: 2.4rem;
+      background: #fafbfd;
+      border-radius: 20px;
+      padding: 1.8rem 1.8rem;
+    }
+
+    .faq-mini h3 {
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #0d0f17;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #e2e6ed;
+      padding-bottom: 0.6rem;
+    }
+
+    .faq-mini details[open] {
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #1b2431;
+      padding: 0.2rem 0;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #6f7c8f;
+    }
+
+    .faq-mini p {
+      margin-top: 0.5rem;
+      color: #364153;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 1.8rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+      .footer-note {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 首页横幅 (杂志式) -->
+    <div class="hero">
+      <h1>1xbet · 门户速览</h1>
+      <span class="badge">用户指南 · 识别用途</span>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="context-card">
+      <p>当你第一次打开一个陌生的链接，最想知道的往往是：<strong>这个网站提供什么？</strong> 从功能定位看，<a href="https://main-portal-1xbet.com" class="inline-link">1xbet</a> 是一个集中式的信息与服务平台入口，聚合了多种实用模块。我们整理了几个核心视角，帮助你快速判断它是否匹配你的需求。</p>
+    </div>
+
+    <!-- 三段自然介绍 + 特点卡片 -->
+    <div class="section">
+      <div class="section-title">它解决什么问题</div>
+      <p>很多人希望在一个界面里完成常用操作，而不是在多个标签页之间来回切换。这个门户的设计初衷，就是整合分散的路径，让常用的工具、参考信息、状态查询都能通过同一个起点触达。无论你是偶尔使用还是经常需要，减少重复寻找的时间总是一个实在的便利。</p>
+      <p>从实际体验来看，页面的入口布局很直观——分类清晰，不需要太多学习成本。对于第一次接触的人来说，花一两分钟浏览就能掌握大概结构。</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">常见的应用场景</div>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>日常查询</h4>
+          <p>快速检索资讯、状态或记录，无需多层跳转。</p>
+        </div>
+        <div class="feature-item">
+          <h4>功能直达</h4>
+          <p>将常用操作放在首页，一键进入对应模块。</p>
+        </div>
+        <div class="feature-item">
+          <h4>信息聚合</h4>
+          <p>公告、说明、工具链接集中展示，便于对照。</p>
+        </div>
+      </div>
+      <p style="margin-top: 1.4rem;">举例来说，如果你需要定期跟进某个板块的更新，门户的导航可以在几秒内把你带到正确的位置。尤其当工作流涉及多个步骤时，这样一个起点能有效降低操作负担。</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">真实使用感受</div>
+      <p>大多数用户反馈提到一个共同点：<strong>简洁的目录结构让人很快找到方向</strong>。没有冗长的注册流程或无关的干扰信息，打开页面后视线自然落在主要入口上。另外，整个门户的响应速度也比较稳定，在手机和电脑上浏览都不会有明显的卡顿。</p>
+      <p>当然，任何工具都需要适应期。如果你第一次感到不太确定，不妨先从首页的几个主要分区入手，逐一了解它们的用途。通常花几分钟就能建立清晰的使用地图。</p>
+    </div>
+
+    <!-- FAQ 摘要 (杂志式轻问答) -->
+    <div class="faq-mini">
+      <h3>常见疑问 · 快速梳理</h3>
+      <details>
+        <summary>这个门户主要面向哪类人群？</summary>
+        <p>面向所有希望在一个集中位置获取信息或使用功能的用户。无论是轻度使用者还是高频操作者，都能从中受益。</p>
+      </details>
+      <details>
+        <summary>是否需要额外注册才能浏览？</summary>
+        <p>大部分内容可直接浏览，部分功能可能需要账户验证（视具体模块而定），首页会明确提示入口状态。</p>
+      </details>
+      <details>
+        <summary>移动端适配如何？</summary>
+        <p>门户采用响应式布局，在手机屏幕上也保持清晰的卡片和导航层级，触控区域足够大。</p>
+      </details>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+      <p>如果你正在寻找一个简洁的起点，不妨试试看。</p>
+      <span class="visit-tip">
+        <a href="https://main-portal-1xbet.com" class="inline-link">1xbet</a> · 直接前往
+      </span>
+    </div>
+    <!-- 细微的杂志版式印记 -->
+    <div style="margin-top: 0.8rem; font-size: 0.75rem; color: #9aa6b5; text-align: right; letter-spacing: 0.5px;">vol. 04 · 简洁导航专题</div>
+  </div>
+</body>
+</html>
